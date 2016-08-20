@@ -35,7 +35,9 @@ def list_date(request, year, month):
 
 
 def _calendar(selected_date):
-    bookings = {booking.date: booking for booking in Booking.objects.all()}
+    year, month = selected_date.year, selected_date.month
+    filters = {'date__year':  year, 'date__month': month}
+    bookings = {b.date: b for b in Booking.objects.filter(**filters)}
     calendar = Calendar(firstweekday=6)
-    for week in calendar.monthdatescalendar(selected_date.year, selected_date.month):
+    for week in calendar.monthdatescalendar(year, month):
         yield [(day, bookings.get(day)) for day in week]

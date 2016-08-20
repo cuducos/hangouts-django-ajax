@@ -15,6 +15,13 @@ Source for a Hangouts On Air about Django & AJAX (to be scheduled).
 
 All endpoints requires authentication (use [Django Admin](http://localhost:8000/admin/)).
 
+### Browser navigation
+
+* [`/bookings/`](http://localhost:8000/bookings/): lisk all bookings from the current month
+* [`/bookings/<year>/<month>/`](http://localhost:8000/bookings/2016/12/) (e.g. `/bookings/2016/12/`): lisk all bookings from the current month (*if logged it shows the form to make a new booking*) 
+
+
+### API
 
 * `GET /api/bookings/`: lisk all bookings
 * `POST /api/bookings/`: create new booking

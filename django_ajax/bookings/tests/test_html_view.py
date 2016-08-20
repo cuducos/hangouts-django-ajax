@@ -10,11 +10,11 @@ class TestHtml(TestCase):
         Booking.objects.create(
             user=User.objects.create_user('johndoe', password='jd'),
             event='Pride',
-            date='2016-12-27'
+            date='2014-12-27'
         )
 
 
-class TestGetNoDate(TestCase):
+class TestGetNoDate(TestHtml):
 
     def setUp(self):
         super().setUp()
@@ -24,18 +24,22 @@ class TestGetNoDate(TestCase):
         self.assertEqual(200, self.resp.status_code)
 
     def test_content(self):
-        self.assertIn('Pride', self.resp.content.decode('utf-8'))
+        self.assertNotIn('Pride', self.resp.content.decode('utf-8'))
 
 
-class TestGetWithDate(TestCase):
+class TestGetWithDate(TestHtml):
 
     def setUp(self):
         super().setUp()
-        url = resolve_url('booking:date', month=2, year=1983)
+        url = resolve_url('booking:date', month=12, year=2014)
         self.resp = self.client.get(url)
 
     def test_status(self):
         self.assertEqual(200, self.resp.status_code)
 
     def test_content(self):
-        self.assertNotIn('Pride', self.resp.content.decode('utf-8'))
+        content = self.resp.content.decode('utf-8')
+        with self.subTest():
+            self.assertIn('Dezembro 2014', content)
+            self.assertIn('johndoe', content)
+            self.assertIn('Pride', content)
