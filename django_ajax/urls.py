@@ -24,6 +24,7 @@ router.register(r'bookings', BookingViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^bookings/', include('django_ajax.bookings.urls', namespace='booking')),
     url(r'^api/', include(router.urls, namespace='api')),
     url(r'^auth/', include('rest_framework.urls', namespace='auth'))
 ]
