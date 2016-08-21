@@ -15,9 +15,10 @@ Source for a Hangouts On Air about Django & AJAX (to be scheduled).
 
 ### Browser navigation
 
-* [`/bookings/`](http://localhost:8000/bookings/): list all bookings from the current month
-* [`/bookings/<year>/<month>/`](http://localhost:8000/bookings/2016/12/) (e.g. `/bookings/2016/12/`): list all bookings from the current month (*if logged it shows the form to make a new booking*) 
+If user is authenticated (use [Django Admin](http://localhost:8000/admin/)) it shows the form to make a new booking via AJAX (to be created during the Hangout).
 
+* [`/bookings/`](http://localhost:8000/bookings/): list all bookings from the current month
+* [`/bookings/<year>/<month>/`](http://localhost:8000/bookings/2016/12/) (e.g. `/bookings/2016/12/`): list all bookings from the current month  
 
 ### API
 
