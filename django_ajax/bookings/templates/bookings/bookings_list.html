@@ -53,7 +53,13 @@
             {% for week in calendar %}
             <tr>
               {% for day, booking in week %}
-              <td{% if selected_date.month != day.month %} class ="other"{% endif %}>
+              <td
+                {% if selected_date.month != day.month %}
+                class ="other"
+                {% else %}
+                id="day_{{ day.day }}"
+                {% endif %}
+              >
                 <strong>{{ day.day }}</strong>
                 <br>
                 {% if booking %}
