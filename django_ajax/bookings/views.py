@@ -1,5 +1,5 @@
 from calendar import Calendar
-from datetime import date
+from datetime import date, timedelta
 
 from django.http import Http404
 from django.shortcuts import render
@@ -28,7 +28,9 @@ def list_date(request, year, month):
 
     context = {
         'selected_date': selected_date,
-        'calendar': tuple(_calendar(selected_date))
+        'calendar': tuple(_calendar(selected_date)),
+        'next': selected_date + timedelta(days=31),
+        'previous': selected_date - timedelta(days=1)
     }
 
     return render(request, 'bookings/bookings_list.html', context)

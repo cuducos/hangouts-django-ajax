@@ -16,8 +16,21 @@
 
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-
         <h1>Reservas</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <a href="{% url 'booking:date' year=previous.year month=previous.month %}">« Mês anterior</a>
+      </div>
+      <div class="col-md-5 text-right">
+        <a href="{% url 'booking:date' year=next.year month=next.month %}">Próximo mês »</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
 
         <table class="table table-bordered">
 
