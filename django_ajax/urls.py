@@ -17,12 +17,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 
-from django_ajax.bookings.views import BookingViewSet
+from django_ajax.bookings.views import BookingViewSet, home
 
 router = routers.DefaultRouter()
 router.register(r'bookings', BookingViewSet)
 
 urlpatterns = [
+    url(r'^$', home, name='home'),
     url(r'^admin/', admin.site.urls),
     url(r'^bookings/', include('django_ajax.bookings.urls', namespace='booking')),
     url(r'^api/', include(router.urls, namespace='api')),

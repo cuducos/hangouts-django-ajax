@@ -14,6 +14,10 @@ class BookingViewSet(ModelViewSet):
     serializer_class = BookingSerializer
 
 
+def home(request):
+    return render(request, 'bookings/home.html')
+
+
 def list(request):
     selected_date = date.today()
     return list_date(request, selected_date.year, selected_date.month)
