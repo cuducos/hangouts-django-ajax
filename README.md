@@ -1,6 +1,7 @@
 # Papo aberto: Django & AJAX
 
-Source for a [Hangouts On Air about Django & AJAX](https://plus.google.com/events/cuq69oss8gjevd66av0coaklqns?authkey=COuxzN63uaz_hAE).
+Source for a [Hangouts On Air about Django & AJAX](
+http://youtu.be/PwskBz5re4Q).
 
 ## Installing
 
