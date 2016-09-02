@@ -62,7 +62,6 @@
                 <br>
                 {% if booking %}
                 {{ booking.event }}
-                ({{ booking.user.username }})
                 {% else %}
                 &nbsp;
                 {% endif %}
@@ -78,6 +77,8 @@
         <h2>Faça sua reserva</h2>
         <form action="." method="post">
 
+          <input type="hidden" name="user" id="user" value="{{ request.user.pk }}">
+
           <div class="form-group">
             <label for="event">Evento</label>
             <input class="form-control" type="text" id="event" name="event">
@@ -89,7 +90,7 @@
               {% for week in calendar %}
               {% for day, booking in week %}
               {% if not booking and selected_date.month == day.month %}
-              <option value="X">{{ day }}</option>
+              <option value="{{ day.year }}-{{ day.month }}-{{ day.day}}">{{ day }}</option>
               {% endif %}
               {% endfor %}
               {% endfor %}
@@ -105,5 +106,7 @@
       </div><!-- end .col-md-10 -->
     </div><!-- end .row -->
 
+    <script src="{% static 'django_csrf.js' %}"></script>
+    <script src="{% static 'app.js' %}"></script>
   </body>
 </html>

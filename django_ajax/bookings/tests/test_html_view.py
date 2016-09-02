@@ -41,5 +41,4 @@ class TestGetWithDate(TestHtml):
         content = self.resp.content.decode('utf-8')
         with self.subTest():
             self.assertIn('Dezembro 2014', content)
-            self.assertIn('johndoe', content)
             self.assertIn('Pride', content)
