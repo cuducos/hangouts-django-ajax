@@ -1,4 +1,4 @@
-Django==1.10
+Django==1.11.28
 dj-static==0.0.6
 dj-database-url==0.4.1
 djangorestframework==3.4.4
